@@ -15,6 +15,7 @@ public class MyAccountDashboardLoginPage extends MyAccountLoginPage {
     By adressesLinkSelector = By.cssSelector("a[href='http://practice.automationtesting.in/my-account/edit-address/']");
     By accountdetailsSelector = By.cssSelector("a[href='http://practice.automationtesting.in/my-account/edit-account/']");
     By logOutSelector = By.cssSelector("a[href='http://practice.automationtesting.in/my-account/customer-logout/']");
+    By basketiconeSelector = By.cssSelector(".wpmenucartli");//shop icon
 
 
 

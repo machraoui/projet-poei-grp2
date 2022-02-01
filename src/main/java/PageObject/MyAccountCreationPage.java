@@ -18,6 +18,7 @@ public class MyAccountCreationPage {
     By sstrongPasswordSelector = By.cssSelector(".woocommerce-password-hint");
     By invalidPasswordSelector = By.cssSelector(".woocommerce-Button button disabled");
     By emptyPwd_validPassword_MessareErrorSelector= By.cssSelector("woocommerce-error");
+    By basketiconeSelector = By.cssSelector(".wpmenucartli");//shop icon
     // TODO: 31/01/2022  By -> valid mail empty password selector
     long timeout = 5;
     public void validCreateAccount(String email, String pwd){

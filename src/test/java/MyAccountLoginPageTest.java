@@ -164,5 +164,13 @@ public class MyAccountLoginPageTest {
 
     }*/
 
+    @Test
+//presence de basket incon
+    public void verifyViewBasket(){
+        MainPage mainPage = new MainPage(driver);
+        boolean isbasasketpresent = mainPage.openAccountPage().isbasketPresent();
+        Assert.assertTrue(isbasasketpresent);
+    }
+
 
 }
