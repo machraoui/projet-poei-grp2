@@ -21,17 +21,18 @@ public class MyAccountLostPageReset {
     long timeout=10;
 
 
-    public void validResetPassword(String mail){
+    public resetPasswordMessage validResetPassword(String mail){
 
         driver.findElement(urmail).sendKeys(mail);
         driver.findElement(PasswordReset).click();
 
 
-        /*WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
+       /* WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
         wait.until(ExpectedConditions.presenceOfElementLocated(PasswordReset));*/
 
-        System.out.println("page reset open");
-
+        resetPasswordMessage resetPasswordMessage = new resetPasswordMessage(driver);
+           return  resetPasswordMessage;
+        //System.out.println("page reset open");
 
     }
 

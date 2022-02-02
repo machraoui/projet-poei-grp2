@@ -72,10 +72,12 @@ public class ShopPage  extends Base {
 
     }
 
+
+
     public BasketPage viewBasket() {
 
         driver.findElement(articleAddtocartForwardSelector).click();
-        BasketPage basketPage = new BasketPage();
+        BasketPage basketPage = new BasketPage(driver);
 
         return basketPage;
 

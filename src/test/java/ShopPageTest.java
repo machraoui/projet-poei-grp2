@@ -78,6 +78,19 @@ public class ShopPageTest {
 
 
     }
+@Test
+    public void verifyArticleInBasket(){
+
+        String expectedAndroidCat = "Android";// test a refaire avec un lien
+        MainPage mainPage = new MainPage(driver);
+        ShopPage shopPage =  mainPage.openShopage().shopFilterbyTheme();
+        shopPage.addToCart();
+
+        //Assert.assertTrue(shopPage.getshopFilterbyTheme().contains(expectedAndroidCat));
+
+
+
+    }
 
 
 
