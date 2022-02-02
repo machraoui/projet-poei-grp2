@@ -10,6 +10,8 @@ public class Base {
   public   WebDriver driver;
 
     By myaccountPageSelector = By.cssSelector("#menu-item-50");
+
+
     @BeforeMethod
     public void setup() {
 
@@ -20,6 +22,10 @@ public class Base {
         driver.findElement(myaccountPageSelector).click();
 
     }
+
+
+
+
 }
 
 

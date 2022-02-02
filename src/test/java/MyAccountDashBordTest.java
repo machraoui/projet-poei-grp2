@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class MyAccountDashBordTest extends Base {
 
-    @Test
+    @Test(groups = {"smoke"})
 //invalid user and valid password
     public  void AccountLinkTest() throws InterruptedException {
 

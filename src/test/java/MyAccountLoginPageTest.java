@@ -6,12 +6,22 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class MyAccountLoginPageTest {
 
     WebDriver driver;
     Logger log = LogManager.getLogger(MyAccountLoginPageTest.class);
+
+    @DataProvider
+    public static Object[][] getdataa() {
+        return new Object[][]{
+                {"poeigrp2@yopmail.com", "Poeigrp2."},
+                {"user2", "pwd1"}
+        };
+    }
+
     @BeforeMethod
     public void setup(){
 
@@ -28,18 +38,21 @@ public class MyAccountLoginPageTest {
     }
 
     //valid username and password
-   @Test
+   @Test//(dataProvider="getdataa")
 
+    public  void openMyAccountPage_LoginPageTest(){//(String nom,String pwd){
+        //String nom ="poeigrp2@yopmail.com";
+       //String pwd = "Poeigrp2.";
 
+       String nom ="cyrille@yopmail.com";
+       String pwd = "Pa55w.rd2";
 
-    public  void openMyAccountPage_LoginPageTest(){
-        String nom ="poeigrp2@yopmail.com";
-        String pwd = "Poeigrp2.";
-        String expectedHello= "Hello";
+       String expectedHello= "Hello";
         log.info("loginTest");
         MainPage mainPage = new MainPage(driver);
         log.info("practice.automationtestingisopen");
         mainPage.openAccountPage().loginValidUser(nom,pwd);
+        MyAccountLoginPage a = mainPage.openAccountPage().loginValidUser(nom,pwd);
         Assert.assertTrue(mainPage.openAccountPage().getLoginOK().contains(expectedHello),"echec de la connexion");
         log.info("connexion reussi");
 
@@ -59,7 +72,7 @@ public class MyAccountLoginPageTest {
         log.info("connexion reussi");
 
     }
-    @Test
+    @Test()
 //invalid user and valid password
     public  void openMyAccountPage_LoginPageTest_falseUser_correctPassword() throws InterruptedException {
         String nom ="p5";
@@ -98,7 +111,8 @@ public class MyAccountLoginPageTest {
         //correct user empty password
 
     }
-@Test
+@Test(dataProvider="getdataa")
+
     //empty user empty password
     public  void openMyAccountPage_LoginPageTest_emptyUser_emptytPassword() throws InterruptedException {
         String nom ="";
@@ -163,6 +177,14 @@ public class MyAccountLoginPageTest {
         driver.quit();
 
     }*/
+
+    @Test
+//presence de basket incon
+    public void verifyViewBasket(){
+        MainPage mainPage = new MainPage(driver);
+        boolean isbasasketpresent = mainPage.openAccountPage().isbasketPresent();
+        Assert.assertTrue(isbasasketpresent);
+    }
 
 
 }

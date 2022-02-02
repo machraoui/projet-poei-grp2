@@ -22,6 +22,7 @@ public class MyAccountLoginPage {
     By invalidUsername = By.cssSelector(".woocommerce .woocommerce-error");
 
     By logoImage = By.cssSelector("#site-logo");
+    By basketiconeSelector = By.cssSelector(".wpmenucartli");//shop icon
     long timeout=10;
     //*[@id="page-36"]/div/div[1]/ul
 
@@ -35,6 +36,7 @@ public class MyAccountLoginPage {
         driver.findElement(userNameSelector).sendKeys(userName);
         driver.findElement(passwordSelector).sendKeys(password);
         driver.findElement(buttonLoginSelector).click();
+        By basketiconeSelector = By.cssSelector(".wpmenucartli");//shop icon
 
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
@@ -78,6 +80,11 @@ return  this;
 
     public boolean validateLogo(){
         return driver.findElement(logoImage).isDisplayed();
+    }
+
+    public boolean isbasketPresent(){
+
+        return driver.findElement(basketiconeSelector).isDisplayed();
     }
 
 }

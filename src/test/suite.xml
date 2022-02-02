@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+
+<suite name="Selenium Training Suite">
+<test name="Selenium TestNG Test">
+    <classes>
+        <class name="ShopPageTest">
+            <methods>
+                <include name="SaleArticlePresent"/>
+                <include name="verifyViewBasket" />
+                <include name="addArticleToCartTest" />
+                <include name="addArticleToCartBasketTest" />
+                <include name="verifyViewBasket"/>
+                <include name="verifyFilterByTheme"/>
+                <include name="verifyFilterByPrice1"/>
+            </methods>
+        </class>
+        <class name="MyAccoutCreationTest">
+            <methods>
+                <include name="openMyAccountCreationPage1"/>
+            </methods>
+        </class>
+        <class name="ProductPageTest">
+            <methods>
+                <include name="verifyOpenProductTest"/>
+            </methods>
+        </class>
+        <class name="MyAccountDashBordTest">
+            <methods>
+                <include name="AccountLinkTest"/>
+            </methods>
+        </class>
+        <class name="MyAccountLoginPageTest">
+            <methods>
+                <include name="openMyAccountPage_LoginPageTest"/>
+                <include name="openMyAccountPage_LoginPageTest_correctUser_falsePassword"/>
+                <include name="openMyAccountPage_LoginPageTest_falseUser_correctPassword"/>
+                <include name="openMyAccountPage_LoginPageTest_validUser_emptytPassword"/>
+                <include name="openMyAccountPage_LoginPageTest_emptyUser_emptytPassword"/>
+                <include name="openMyAccountPage_LoginPage_logo"/>
+                <include name="openMyAccountPage_LoginDashBordPage"/>
+            </methods>
+        </class>
+
+
+
+
+    </classes>
+</test>
+</suite>
+
+
