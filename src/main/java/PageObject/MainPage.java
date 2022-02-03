@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeTest;
 
+import java.nio.channels.ScatteringByteChannel;
 import java.time.Duration;
 
 public class MainPage {
@@ -40,12 +41,17 @@ public class MainPage {
        return myAccountCreationPage;
     }
 
-    public ShopPage openShopage (){
-        driver.findElement(shoptPageSelector).click();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
-        wait.until(ExpectedConditions.presenceOfElementLocated(getSelecArticleListSelector1));
-        ShopPage shopPage = new ShopPage(driver);
-        return shopPage;
+
+    public ShopPage openShopage() {
+
+
+            driver.findElement(shoptPageSelector).click();
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
+            wait.until(ExpectedConditions.presenceOfElementLocated(getSelecArticleListSelector1));
+            ShopPage shopPage = new ShopPage(driver);
+            return shopPage;
+
+
 
     }
 
@@ -53,6 +59,22 @@ public class MainPage {
         driver.findElement(shoptPageSelector).click();
         ProductPage productPage = new ProductPage(driver);
         return productPage;
+
+    }
+    public BasketPage openMy_Bascket_Page (){
+        driver.findElement(shoptPageSelector).click();;
+        BasketPage basketPage = new BasketPage(driver);
+        return basketPage ;
+
+
+
+    }
+
+    public CheckoutPage CheckouPage() {
+
+        driver.findElement(myaccountPageSelector).click();
+        CheckoutPage checkoutPage = new CheckoutPage(driver);
+        return checkoutPage;
 
     }
 

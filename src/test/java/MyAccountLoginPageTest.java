@@ -25,13 +25,8 @@ public class MyAccountLoginPageTest {
     @BeforeMethod
     public void setup(){
 
-        //System.setProperty("webdriver.gecko.driver", "path/to/geckodriver.exe");
-       driver = new FirefoxDriver();
-        //driver = new ChromeDriver();
-        /*ChromeOptions options = new ChromeOptions();
-        options.addArguments("load-extension=C:\\Users\\ib\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\cfhdojbkjhnklbpkdaibdccddilifddb");
-        ChromeDriver driver = new ChromeDriver(options);*/
 
+        driver = new FirefoxDriver();
         driver.get("http://practice.automationtesting.in");
         driver.manage().deleteAllCookies();
 

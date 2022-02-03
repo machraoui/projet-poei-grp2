@@ -55,12 +55,11 @@ public class ShopPage  extends Base {
 
         //String article1 =listeDeResultat.get(1).getText();
         //System.out.println(listeDeResultat.get(1).getText());
-
         String article1 = driver.findElement(selecArticleListSelector).getText();
         System.out.println(article1);
-
-
         return article1;
+
+
     }
 
     public String getViewArticleMessage() {
@@ -84,7 +83,7 @@ public class ShopPage  extends Base {
     public BasketPage viewBasket() {
 
         driver.findElement(articleAddtocartForwardSelector).click();
-        BasketPage basketPage = new BasketPage();
+        BasketPage basketPage = new BasketPage(driver);
 
         return basketPage;
 
@@ -97,10 +96,6 @@ public class ShopPage  extends Base {
     }
 
     public ShopPage shopFilterbyTheme() {
-
-      /*  List<WebElement> list = driver.findElements(shopFilterThemeSelecter);
-        list.get(0).click();
-        System.out.println(list.get(0).getText());*/
 
 
         driver.findElement(shopFilterThemeSelecter).click();
@@ -140,11 +135,6 @@ public class ShopPage  extends Base {
 
     public ShopPage shopFilterbyTheme2() {
 
-      /*  List<WebElement> list = driver.findElements(shopFilterThemeSelecter);
-        list.get(0).click();
-        System.out.println(list.get(0).getText());*/
-
-
         driver.findElement(shopFilterThemeSelecter).click();
 
         return this;
@@ -158,13 +148,6 @@ public class ShopPage  extends Base {
 
         String[] test = new String[5];
 
-    /*for (WebElement el:listArticle) {
-        for(int i =0;i<=5;i++){
-
-            test[i]=el.getText().replaceAll("[^a-zA-Z0-9]", "");
-        }
-
-    }*/
 
         int price = parseInt(driver.findElement(filterAllArticlePrice).getText().replaceAll("[^a-zA-Z0-9]", ""));
 
@@ -172,10 +155,6 @@ public class ShopPage  extends Base {
             return true;
         }
 
-            //System.out.println(driver.findElement(filterAllArticlePrice).getText().replaceAll("[^a-zA-Z0-9]", ""));
-            //return test;
-            // return driver.findElement(filterAllArticlePrice).getText().replaceAll("[^a-zA-Z0-9]", "");
-            //return listArticle.get(0).toString();
 
 return true;
 

@@ -23,8 +23,8 @@ public class ShopPageTest {
     }
 
     //affiche du premier article avec le bon nom
-    @Test()
-    public void SaleArticlePresent(){
+    @Test(groups = {"demo"})
+    public void SaleArticlePresent ()throws  NullPointerException {
 
         String expectedFirsArticle = "Android Quick Start Guide";
         MainPage mainPage = new MainPage(driver);
@@ -35,8 +35,8 @@ public class ShopPageTest {
     }
 
     //rg2 : lien view basket apparait
-    @Test
 
+    @Test
     public void addArticleToCartTest(){
 
         String expectedArcticlePrice = "View Basket";
