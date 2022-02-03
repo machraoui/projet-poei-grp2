@@ -8,7 +8,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class BasketPage {
-     WebDriver driver ;
+
+
+    /*By basketiconeSelector = By.cssSelector(".wpmenucartli");//shop icon
+
+public void aa(){
+
+
+}*/
+    WebDriver driver ;
     By TotalPrice = By.cssSelector("td.product-subtotal > span:nth-child(1)");
     By Priceunitaireselector = By.cssSelector("td.product-price > span:nth-child(1)");
     By basketiconeSelector = By.cssSelector(".wpmenucartli");//shop icon
@@ -30,12 +38,12 @@ public class BasketPage {
         this.driver=driver;
     }
 
-  public BasketPage addToCart() {
+    public BasketPage addToCart() {
 
         driver.findElement(addToCartSelector).click();
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
-      wait.until(ExpectedConditions.presenceOfElementLocated(articleviewSelector));
+        wait.until(ExpectedConditions.presenceOfElementLocated(articleviewSelector));
         return this;
 
     }
@@ -80,46 +88,46 @@ public class BasketPage {
         return driver.findElement(delectmessage).getText();
     }
 
-   public BasketPage delectFrombascket () {
+    public BasketPage delectFrombascket () {
 
-       driver.findElement(Delectarticl).click();
+        driver.findElement(Delectarticl).click();
 
-       WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
-       wait.until(ExpectedConditions.presenceOfElementLocated(delectmessage));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
+        wait.until(ExpectedConditions.presenceOfElementLocated(delectmessage));
 
-   return this ;
-   }
+        return this ;
+    }
 
-  public BasketPage modifQuantity (String quantity) {
+    public BasketPage modifQuantity (String quantity) {
 
-      driver.findElement(Quantityselector).clear();
-      driver.findElement(Quantityselector).sendKeys(quantity);
-      WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
-      wait.until(ExpectedConditions.presenceOfElementLocated(updatebascket));
+        driver.findElement(Quantityselector).clear();
+        driver.findElement(Quantityselector).sendKeys(quantity);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
+        wait.until(ExpectedConditions.presenceOfElementLocated(updatebascket));
       /*driver.findElement((updatebascket)).click();
       WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(timeout));
       wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(updatebascket));*/
 
-            return this;
-  }
+        return this;
+    }
 
 
 
-  public BasketPage updateBasket (){
+    public BasketPage updateBasket (){
         //a voir
 
         driver.findElement((updatebascket)).click();
 
         return this;
-  }
+    }
 
-  public String Basket_Taxes () {
+    public String Basket_Taxes () {
 
-      return driver.findElement(Taxes_selector).getText();
+        return driver.findElement(Taxes_selector).getText();
 
-  }
-  public String Price_after_taxes () {
-      return driver.findElement(Prix_total_selector).getText();
+    }
+    public String Price_after_taxes () {
+        return driver.findElement(Prix_total_selector).getText();
 
     }
     public MyPaimentPage checkout_Bascket (){
@@ -131,7 +139,6 @@ public class BasketPage {
 
 
     }
-
 
 
 

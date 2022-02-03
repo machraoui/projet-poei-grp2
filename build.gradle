@@ -25,6 +25,16 @@ dependencies {
 }
 
 test {
-    useJUnitPlatform()
-    useTestNG()
+   useJUnitPlatform()
+
+    useTestNG(){
+
+
+        useDefaultListeners = true
+        suites 'src/test/suite.xml'
+
+
+    }
+
+
 }

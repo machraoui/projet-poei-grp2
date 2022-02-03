@@ -5,10 +5,12 @@ import org.openqa.selenium.WebDriver;
 import PageObject.ShopPage;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.BeforeTest;
 
+import java.nio.channels.ScatteringByteChannel;
 import java.time.Duration;
 
-public class MainPage {
+public class MainPage {git a
 
 
     WebDriver driver;
@@ -16,15 +18,14 @@ public class MainPage {
     By myaccountPageSelector = By.cssSelector("#menu-item-50");
     By shoptPageSelector = By.cssSelector("li[id='menu-item-40'] a");
     By getSelecArticleListSelector1 = By.xpath("//li[1]//img");
-    By Bascketselector = By.cssSelector(".wpmenucart-icon-shopping-cart-0");
+
     long timeout = 5;
+    public MainPage(WebDriver driver){
 
-    public MainPage(WebDriver driver) {
-
-        this.driver = driver;
+        this.driver=driver;
     }
 
-    public MyAccountLoginPage openAccountPage() {
+    public MyAccountLoginPage openAccountPage(){
 
         driver.findElement(myaccountPageSelector).click();
 
@@ -32,20 +33,40 @@ public class MainPage {
         return myAccountLoginPage;
     }
 
-    public MyAccountCreationPage invalidOpenAccountCreationPage() {
+    public MyAccountCreationPage invalidOpenAccountCreationPage(){
 
         driver.findElement(myaccountPageSelector).click();
 
         MyAccountCreationPage myAccountCreationPage = new MyAccountCreationPage(driver);
-        return myAccountCreationPage;
+       return myAccountCreationPage;
     }
 
+
     public ShopPage openShopage() {
+
+
+            driver.findElement(shoptPageSelector).click();
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
+            wait.until(ExpectedConditions.presenceOfElementLocated(getSelecArticleListSelector1));
+            ShopPage shopPage = new ShopPage(driver);
+            return shopPage;
+
+
+
+    }
+
+    public ProductPage openProductPage(){
         driver.findElement(shoptPageSelector).click();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
-        wait.until(ExpectedConditions.presenceOfElementLocated(getSelecArticleListSelector1));
-        ShopPage shopPage = new ShopPage(driver);
-        return shopPage;
+        ProductPage productPage = new ProductPage(driver);
+        return productPage;
+
+    }
+    public BasketPage openMy_Bascket_Page (){
+        driver.findElement(shoptPageSelector).click();;
+        BasketPage basketPage = new BasketPage(driver);
+        return basketPage ;
+
+
 
     }
 
@@ -57,19 +78,9 @@ public class MainPage {
 
     }
 
-    public MyAccountLostpasswordPage openAccountPageforLostPassWord() {
-        driver.findElement(myaccountPageSelector).click();
-        MyAccountLostpasswordPage myAccountLostpasswordPage = new MyAccountLostpasswordPage(driver);
-        return myAccountLostpasswordPage;
-
-
-    }
-    public BasketPage openMy_Bascket_Page (){
-        driver.findElement(shoptPageSelector).click();;
-        BasketPage basketPage = new BasketPage(driver);
-        return basketPage ;
 
 
 
-    }
+
+
 }

@@ -3,8 +3,8 @@ package PageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-
 public class CheckoutPage {
+
     By logOutSelector = By.cssSelector("a[href='http://practice.automationtesting.in/my-account/customer-logout/']");
     WebDriver driver;
 
@@ -29,11 +29,5 @@ public class CheckoutPage {
 
 
     }
-
-
-
-
-
-
 
 }

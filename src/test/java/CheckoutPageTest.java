@@ -9,26 +9,27 @@ import org.testng.annotations.Test;
 
 public class CheckoutPageTest {
     WebDriver driver;
-   Logger log = LogManager.getLogger(MyAccountLoginPageTest.class);
+    Logger log = LogManager.getLogger(MyAccountLoginPageTest.class);
     @BeforeMethod
     public void setup(){
 
         driver = new FirefoxDriver();
         driver.get("http://practice.automationtesting.in");
+        driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
 
     }
-@Test
+    @Test
 
 
-public  void openMyAccountPage_LogoutPageTest(){
+    public  void openMyAccountPage_LogoutPageTest(){
         String nom ="poeigrp2@yopmail.com";
         String pwd = "Poeigrp2.";
         MainPage mainPage = new MainPage(driver);
         mainPage.CheckouPage().OpenCheckout(nom,pwd).checkoutLogout();
 
 
-}
+    }
 
 
 

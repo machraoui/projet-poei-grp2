@@ -5,13 +5,15 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 public class ShopPageTest {
 
     WebDriver driver;
 
 
-    @BeforeMethod
+    //@BeforeMethod
+    @BeforeTest
     public void setup(){
 
         driver = new FirefoxDriver();
@@ -21,8 +23,8 @@ public class ShopPageTest {
     }
 
     //affiche du premier article avec le bon nom
-    @Test
-    public void SaleArticlePresent(){
+    @Test(groups = {"demo"})
+    public void SaleArticlePresent ()throws  NullPointerException {
 
         String expectedFirsArticle = "Android Quick Start Guide";
         MainPage mainPage = new MainPage(driver);
@@ -33,8 +35,8 @@ public class ShopPageTest {
     }
 
     //rg2 : lien view basket apparait
-    @Test
 
+    @Test
     public void addArticleToCartTest(){
 
         String expectedArcticlePrice = "View Basket";
@@ -66,40 +68,32 @@ public class ShopPageTest {
     //choix par theme android
     @Test
 
-    public void verifyFilterByTheme(){
+    public void verifyFilterByTheme() {
 
         String expectedAndroidCat = "Android";// test a refaire avec un lien
         MainPage mainPage = new MainPage(driver);
-        ShopPage shopPage =  mainPage.openShopage().shopFilterbyTheme();
+        ShopPage shopPage = mainPage.openShopage().shopFilterbyTheme();
         shopPage.getshopFilterbyTheme();
 
         Assert.assertTrue(shopPage.getshopFilterbyTheme().contains(expectedAndroidCat));
 
-
-
     }
-@Test
-    public void verifyArticleInBasket(){
 
-        String expectedAndroidCat = "Android";// test a refaire avec un lien
+
+        @Test
+    public void verifyFilterByPrice1(){
+
+
+        int expectePprice = 30000;
+
         MainPage mainPage = new MainPage(driver);
-        ShopPage shopPage =  mainPage.openShopage().shopFilterbyTheme();
-        shopPage.addToCart();
+        ShopPage shopPage1 =  mainPage.openShopage().shopFilterByPrice();
+        shopPage1.getFilterArticle(expectePprice);
 
-        //Assert.assertTrue(shopPage.getshopFilterbyTheme().contains(expectedAndroidCat));
-
+        Assert.assertTrue(shopPage1.getFilterArticle(expectePprice));
 
 
     }
-
-
-
-
-
-
-
-
-
 
 
 }

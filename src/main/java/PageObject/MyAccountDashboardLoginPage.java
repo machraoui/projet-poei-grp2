@@ -5,17 +5,16 @@ import org.openqa.selenium.WebDriver;
 
 public class MyAccountDashboardLoginPage extends MyAccountLoginPage {
     public MyAccountDashboardLoginPage(WebDriver driver) {
-
         super(driver);
     }
 
-   // By accountNavigateSelector = By.cssSelector(".woocommerce-MyAccount-navigation");
-    By dashbordLinkSelector =  By.cssSelector("li.woocommerce-MyAccount-navigation-link:nth-child(1) > a:nth-child(1)");
-    By orderLinkSelector = By.cssSelector("li.woocommerce-MyAccount-navigation-link:nth-child(2) > a:nth-child(1)");
-    By downloadLinkSelector = By.cssSelector("li.woocommerce-MyAccount-navigation-link:nth-child(3) > a:nth-child(1)");
-    By adressesLinkSelector = By.cssSelector("li.woocommerce-MyAccount-navigation-link:nth-child(4) > a:nth-child(1)");
-    By accountdetailsSelector = By.cssSelector("li.woocommerce-MyAccount-navigation-link:nth-child(5) > a:nth-child(1)");
-    By logOutSelector = By.cssSelector("li.woocommerce-MyAccount-navigation-link:nth-child(6) > a:nth-child(1)");
+    By accountNavigateSelector = By.cssSelector(".woocommerce-MyAccount-navigation");
+    //By dashbordLinkSelector =  By.cssSelector("li[class='woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--dashboard'] a");
+    By orderLinkSelector = By.cssSelector("li[class='woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--orders'] a");
+    By downloadLinkSelector = By.cssSelector("li[class='woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--downloads'] a");
+    By adressesLinkSelector = By.cssSelector("a[href='http://practice.automationtesting.in/my-account/edit-address/']");
+    By accountdetailsSelector = By.cssSelector("a[href='http://practice.automationtesting.in/my-account/edit-account/']");
+    By logOutSelector = By.cssSelector("a[href='http://practice.automationtesting.in/my-account/customer-logout/']");
     By basketiconeSelector = By.cssSelector(".wpmenucartli");//shop icon
 
 
@@ -24,15 +23,12 @@ public class MyAccountDashboardLoginPage extends MyAccountLoginPage {
     public  String accountdetailselector(){
 
         return driver.findElement(accountdetailsSelector).getText();
-
-
     }
 
-
-    public String dashbordLinkSelector(){
+   /* public String dashbordLinkSelector(){
 
         return driver.findElement(dashbordLinkSelector).getText();
-    }
+    }*/
 
     public String logOutSelector (){
 
@@ -54,4 +50,7 @@ public class MyAccountDashboardLoginPage extends MyAccountLoginPage {
         return driver.findElement(orderLinkSelector).getText();
 
     }
+
+
+
 }

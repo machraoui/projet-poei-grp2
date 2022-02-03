@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+
+<suite name="Selenium Training Suite">
+<test name="Ajout article Panier">
+    <classes>
+        <class name="ShopPageTest">
+        </class>
+    </classes>
+</test>
+
+    <test name="Productest">
+        <classes>
+            <class name="ProductPageTest">
+            </class>
+        </classes>
+    </test>
+
+    <test name="Connexion">
+        <classes>
+            <class name="MyAccountLoginPageTest">
+            </class>
+        </classes>
+    </test>
+    <test name="Reset Password">
+        <classes>
+            <class name="MyAccountLospasswordPageTest">
+            </class>
+        </classes>
+    </test>
+    <test name="Deconnexion">
+        <classes>
+            <class name="CheckoutPageTest">
+            </class>
+        </classes>
+    </test>
+    <test name="Inscription">
+        <classes>
+            <class name="MyAccoutCreationTest">
+            </class>
+        </classes>
+
+    </test>
+    <test name="Consultation Panier">
+        <classes>
+            <class name="BasketPageTest">
+            </class>
+        </classes>
+
+    </test>
+
+
+</suite>
+
+

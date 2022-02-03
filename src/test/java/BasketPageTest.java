@@ -24,7 +24,6 @@ public class BasketPageTest {
 
    /* @Test
     public void Priceunitaire_Test() {
-
         String Priceunitaire = "450.00";
         MainPage mainPage = new MainPage(driver);
         BasketPage basketPage = mainPage.openMy_Bascket_Page().addToCart().viewBasket();
@@ -43,43 +42,44 @@ public class BasketPageTest {
         System.out.println(QuantityLink);
         Assert.assertTrue(basketPage.getQuantity().contains(Quantity), "the link must be present");
     }
-  /*  @Test
-    public void TotalPrice_Test() {
 
-        String TotalPrice = "450.00";
-        MainPage mainPage = new MainPage(driver);
-        BasketPage basketPage = mainPage.openMy_Bascket_Page().addToCart().viewBasket();
-        String TotalPriceLink = basketPage.getTotalPrice();
-        System.out.println(TotalPriceLink);
-        Assert.assertTrue(TotalPriceLink.contains(TotalPrice), "the link must be present");
-    }*/
+    /*  @Test
+      public void TotalPrice_Test() {
+          String TotalPrice = "450.00";
+          MainPage mainPage = new MainPage(driver);
+          BasketPage basketPage = mainPage.openMy_Bascket_Page().addToCart().viewBasket();
+          String TotalPriceLink = basketPage.getTotalPrice();
+          System.out.println(TotalPriceLink);
+          Assert.assertTrue(TotalPriceLink.contains(TotalPrice), "the link must be present");
+      }*/
     @Test
 
-public void Delectarticl_Test () {
+    public void Delectarticl_Test() {
         String BascketEmpty = "Android Quick Start Guide removed";
         MainPage mainPage = new MainPage(driver);
         BasketPage basketPage = mainPage.openMy_Bascket_Page().addToCart().viewBasket().delectFrombascket();
-        String Articlnumber =  basketPage.getmessage();
+        String Articlnumber = basketPage.getmessage();
         System.out.println(Articlnumber);
-        Assert.assertTrue(Articlnumber.contains(BascketEmpty),"bascket is Empty");
+        Assert.assertTrue(Articlnumber.contains(BascketEmpty), "bascket is Empty");
     }
 
 
     @Test
-    public void ModifQuantity_Test(){
-        String newquantity ="2";
+    public void ModifQuantity_Test() {
+        String newquantity = "2";
         MainPage mainPage = new MainPage(driver);
         BasketPage basketPage = mainPage.openMy_Bascket_Page().addToCart().viewBasket().modifQuantity(newquantity);
         basketPage.updateBasket().viewBasket();
         String QuantityLink = basketPage.getQuantity();
-        System.out.println( QuantityLink);
+        System.out.println(QuantityLink);
 
         //a terminer les Assert
 
 
     }
+
     @Test
-    public void recap_Basket (){
+    public void recap_Basket() {
         String PrixWithTaxe = "472.50";
         String taxe = "22.50";
         String Priceunitaire = "450.00";
@@ -94,30 +94,15 @@ public void Delectarticl_Test () {
         System.out.println(taxe_link);
         System.out.println(Total_a_payer);
 
-         basketPage.checkout_Bascket();
+        basketPage.checkout_Bascket();
         //Assert
         Assert.assertTrue(PriceunitaireLink.contains(Priceunitaire), "the link must be present");
         Assert.assertTrue(taxe_link.contains(taxe), "the link must be present");
         Assert.assertTrue(Total_a_payer.contains(PrixWithTaxe), "the link must be present");
 
 
-
     }
-
-
-
-
-
-
-
-
-
-
-
 }
-
-
-
 
 
 
